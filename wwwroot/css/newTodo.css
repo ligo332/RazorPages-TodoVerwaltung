@@ -1,0 +1,14 @@
+﻿body {
+}
+
+#priority-niedrig {
+    color:teal
+}
+
+#priority-mittel {
+    color:orangered
+}
+
+#priority-hoch {
+    color:darkred
+}

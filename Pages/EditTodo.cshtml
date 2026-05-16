@@ -1,0 +1,38 @@
+﻿@page "{id:guid}"
+@model RazorPagesTodo.Pages.EditTodoModel
+
+
+<h1>Todo bearbeiten</h1>
+
+<form method="post">
+    <input type="hidden" asp-for="Input.Id" />
+
+    <div>
+        <label asp-for="Input.Title">Name:</label>
+        <input asp-for="Input.Title" />
+        <span asp-validation-for="Input.Title"></span>
+    </div>
+
+    <div>
+        <label asp-for="Input.Priority">Priorität:</label>
+
+        <select asp-for="Input.Priority">
+            <option value="">Bitte auswählen</option>
+            <option value="niedrig">Niedrig</option>
+            <option value="mittel">Mittel</option>
+            <option value="hoch">Hoch</option>
+        </select>
+
+        <span asp-validation-for="Input.Priority"></span>
+    </div>
+
+    <div>
+        <label asp-for="Input.IsCompleted">
+            <input asp-for="Input.IsCompleted" />
+            Erledigt
+        </label>
+    </div>
+
+    <button type="submit">Speichern</button>
+    <a asp-page="/Todo">Abbrechen</a>
+</form>

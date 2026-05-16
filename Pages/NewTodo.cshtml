@@ -1,0 +1,44 @@
+﻿@page
+@model TodoModel
+@using RazorPagesTodo.Models
+@{
+	ViewData["Title"] = "Neues Todo";
+}
+
+@section Styles {
+	<link rel="stylesheet" href="~/css/newTodo.css" />
+}
+
+<div class="text-center">
+	<h1 class="display-4">Neues Todo</h1>
+	<p> Hier kannst du ein neues Todo hinzufügen:</p>
+</div>
+
+<body>
+    <form method="post" asp-page-handler="Add">
+        <div>
+            <label asp-for="Input.Title">Titel des Todo:</label>
+            <input asp-for="Input.Title" />
+            <span asp-validation-for="Input.Title"></span>
+        </div>
+
+        <div>
+			<label asp-for="Input.Priority">Priorität auswählen:</label>
+			<select asp-for="Input.Priority">
+                <option value="Niedrig" id="priority-niedrig">Niedrig</option>
+                <option value="Mittel" id="priority-mittel">Mittel</option>
+                <option value="Hoch" id="priority-hoch">Hoch</option>
+			</select>
+        </div>
+
+        <div>
+            <label for="isCompleted">
+                Todo schon erledigt?
+                <input type="checkbox" id="completed-checkbox-formular" name="isCompleted" />
+            </label>
+        </div>
+
+        <button type="submit">Hinzufügen</button>
+        <a asp-page="/Todo">Abbrechen</a>
+    </form>
+</body>
