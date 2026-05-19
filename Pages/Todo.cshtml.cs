@@ -102,7 +102,7 @@ namespace RazorPagesTodo.Pages
 
         private void LoadTodoItems()
         {
-            this.TodoItems = this.todoRepository.GetAll();
+            //this.TodoItems = this.todoRepository.GetAll();
         }
     }
 }

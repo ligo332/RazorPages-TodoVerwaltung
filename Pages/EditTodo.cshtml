@@ -1,38 +1,50 @@
 ﻿@page "{id:guid}"
 @model RazorPagesTodo.Pages.EditTodoModel
+@using RazorPagesTodo.Models
+@{
+	ViewData["Title"] = "Todo bearbeiten";
+}
 
 
-<h1>Todo bearbeiten</h1>
+<head>
+	<link rel="stylesheet" href="~/css/todo.css" />
+	<h1>Todo bearbeiten</h1>
+</head>
 
-<form method="post">
-    <input type="hidden" asp-for="Input.Id" />
+<body>
+	<form method="post">
+		<input type="hidden" asp-for="Input.Id" />
 
-    <div>
-        <label asp-for="Input.Title">Name:</label>
-        <input asp-for="Input.Title" />
-        <span asp-validation-for="Input.Title"></span>
-    </div>
+		<div class="container">
+			<label asp-for="Input.Title">Name:</label>
+			<input asp-for="Input.Title" />
+			<span asp-validation-for="Input.Title"></span>
+		</div>
 
-    <div>
-        <label asp-for="Input.Priority">Priorität:</label>
+		<div class="container">
+			<label asp-for="Input.Priority">Priorität:</label>
 
-        <select asp-for="Input.Priority">
-            <option value="">Bitte auswählen</option>
-            <option value="niedrig">Niedrig</option>
-            <option value="mittel">Mittel</option>
-            <option value="hoch">Hoch</option>
-        </select>
+			<select asp-for="Input.Priority">
+				<option value="">Bitte auswählen</option>
+				<option value="niedrig">Niedrig</option>
+				<option value="mittel">Mittel</option>
+				<option value="hoch">Hoch</option>
+			</select>
 
-        <span asp-validation-for="Input.Priority"></span>
-    </div>
+			<span asp-validation-for="Input.Priority"></span>
+		</div>
 
-    <div>
-        <label asp-for="Input.IsCompleted">
-            <input asp-for="Input.IsCompleted" />
-            Erledigt
-        </label>
-    </div>
+		<div class="container">
+			<label asp-for="Input.IsCompleted">
+				<input asp-for="Input.IsCompleted" />
+				Erledigt
+			</label>
+		</div>
 
-    <button type="submit">Speichern</button>
-    <a asp-page="/Todo">Abbrechen</a>
-</form>
+		<div class="container">
+			<button type="submit" class="button-link">Speichern</button>
+			<a asp-page="/Todo">Abbrechen</a>
+		</div>
+	</form>
+</body>
+

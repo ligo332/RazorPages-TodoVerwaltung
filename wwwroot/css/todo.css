@@ -1,10 +1,19 @@
 ﻿body {
 }
 
+
+.container {
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
+
+
 #testgrid {
     display: grid;
     grid-template-columns: 20px auto 100px 100px 100px;
     grid-template-rows: auto auto 30px;
+    gap: 20px 10px;
 }
 
 
