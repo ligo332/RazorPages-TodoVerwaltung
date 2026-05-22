@@ -13,11 +13,11 @@
 	<h1 class="display-4">Todo Verwaltung</h1>
 </div>
 
-<form method="post" asp-page-handler="EditSelected">
+<form method="post">
 
     <div id="testgrid">
 
-        <input id="hide-completed-checkbox" type="checkbox" />
+        <input id="erledigt-ausblenden-checkbox" type="checkbox" />
         <div id="erledigt-checkbox-label">Erledigte ausblenden?</div>
 
         <a asp-page="./NewTodo" id="neu-btn" class="button-link">Neu</a>
@@ -45,7 +45,7 @@
                 <tr class="todo-row" data-completed="@todo.IsCompleted.ToString().ToLowerInvariant()">
                     <td>
                         <input type="checkbox"
-                               name="selectedTodoId"
+                               name="selectedTodoIds"
                                value="@todo.Id"
                                id="select-todo-@todo.Id" />
                     </td>
@@ -77,7 +77,7 @@
 
 @section Scripts {
     <script>
-        const hideCompletedCheckbox = document.getElementById("hide-completed-checkbox");
+        const hideCompletedCheckbox = document.getElementById("erledigt-ausblenden-checkbox");
         const todoRows = document.querySelectorAll(".todo-row");
 
         hideCompletedCheckbox.addEventListener("change", function () {

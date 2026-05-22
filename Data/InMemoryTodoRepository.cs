@@ -50,7 +50,7 @@ namespace RazorPagesTodo.Data
 
         public ObservableCollection<TodoItem> GetAll()
         {
-            return Items;
+            return this.Items;
         }
 
 

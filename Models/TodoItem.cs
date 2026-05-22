@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace RazorPagesTodo.Models
 {
-    public class TodoItem //: INotifyPropertyChanged
+    public class TodoItem
     {
         private string title = string.Empty;
         private string priority = string.Empty;
@@ -60,7 +60,6 @@ namespace RazorPagesTodo.Models
         /// <param name="field">The field to update.</param>
         /// <param name="value">The new value.</param>
         /// <param name="propertyName">The name of the property that changed.</param>
-        
         private void SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
         {
             if (Equals(field, value))

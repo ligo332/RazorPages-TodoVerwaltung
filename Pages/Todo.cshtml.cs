@@ -2,9 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPagesTodo.Data;
 using RazorPagesTodo.Models;
-using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
 
 namespace RazorPagesTodo.Pages
 {
@@ -17,7 +15,7 @@ namespace RazorPagesTodo.Pages
             this.todoRepository = todoRepository;
         }
 
-        public ObservableCollection<TodoItem> TodoItems => this.todoRepository.Items;
+        public IReadOnlyCollection<TodoItem> TodoItems { get; private set; } = [];
 
         /// <summary>
         /// Gets or sets the todo input submitted by the form.
@@ -37,7 +35,7 @@ namespace RazorPagesTodo.Pages
                 Title = this.Input.Title,
                 Priority = this.Input.Priority,
                 CreatedAt = DateTime.Now,
-                IsCompleted = false
+                IsCompleted = this.Input.IsCompleted
             };
 
             this.todoRepository.Add(item);
@@ -65,17 +63,21 @@ namespace RazorPagesTodo.Pages
             public string Title { get; set; } = string.Empty;
 
             public string Priority { get; set; } = string.Empty;
+
+            public bool IsCompleted { get; set; }
         }
 
-        public IActionResult OnPostEditSelected(Guid? selectedTodoId)
+        public IActionResult OnPostEditSelected(Guid? selectedTodoIds)
         {
-            if (selectedTodoId is null)
+            if (selectedTodoIds is null)
             {
                 this.ModelState.AddModelError(string.Empty, "Bitte wähle ein Todo aus.");
                 this.LoadTodoItems();
                 return this.Page();
             }
-            return this.RedirectToPage("EditTodo", new { id = selectedTodoId.Value });
+            return this.RedirectToPage("EditTodo", new { id = selectedTodoIds.Value });
+            //return this.RedirectToPage("EditTodo", new { id = selectedTodoIds[0] });
+
         }
 
         public IActionResult OnPostDeleteSelected(Guid[] selectedTodoIds)
@@ -102,7 +104,7 @@ namespace RazorPagesTodo.Pages
 
         private void LoadTodoItems()
         {
-            //this.TodoItems = this.todoRepository.GetAll();
+            this.TodoItems = this.todoRepository.GetAll();
         }
     }
 }
