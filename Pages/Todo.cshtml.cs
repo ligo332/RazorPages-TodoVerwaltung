@@ -61,23 +61,21 @@ namespace RazorPagesTodo.Pages
         {
             [Required(ErrorMessage = "Bitte gib einen Titel ein.")]
             public string Title { get; set; } = string.Empty;
-
+            [Required(ErrorMessage = "Bitte gib eine Priorität an.")]
             public string Priority { get; set; } = string.Empty;
 
             public bool IsCompleted { get; set; }
         }
 
-        public IActionResult OnPostEditSelected(Guid? selectedTodoIds)
+        public IActionResult OnPostEditSelected(Guid[] selectedTodoIds)
         {
-            if (selectedTodoIds is null)
+            if (selectedTodoIds.Length == 0)
             {
                 this.ModelState.AddModelError(string.Empty, "Bitte wähle ein Todo aus.");
                 this.LoadTodoItems();
                 return this.Page();
             }
-            return this.RedirectToPage("EditTodo", new { id = selectedTodoIds.Value });
-            //return this.RedirectToPage("EditTodo", new { id = selectedTodoIds[0] });
-
+            return this.RedirectToPage("EditTodo", new { id = selectedTodoIds[0] });
         }
 
         public IActionResult OnPostDeleteSelected(Guid[] selectedTodoIds)

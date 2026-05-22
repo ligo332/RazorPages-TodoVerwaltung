@@ -1,7 +1,6 @@
 ﻿
 .container {
-    margin-top: 20px;
-    margin-right: 5px;
+    margin-top: 10px;
 }
 
 .button-link {
@@ -13,35 +12,44 @@
     text-align: center;
 }
 
+.validation-text {
+    color: red;
+    margin-top: 5px;
+}
+
 #testgrid {
     display: grid;
+    margin-top: 20px;
     grid-template-columns: 20px auto 100px 100px 100px;
-    grid-template-rows: auto auto 30px;
-    gap: 20px 10px;
+    grid-template-rows: auto 20px;
+    grid-column-gap: 10px;
 }
 
 
 #erledigt-ausblenden-checkbox {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 1;
+    aspect-ratio: 1 / 1;
 }
 
 #erledigt-checkbox-label {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 1;
 }
 
 #neu-btn {
     grid-column: 3;
-    grid-row: 2;
+    grid-row: 1;
+    border: 2px solid #545454;
+    border-color: #545454 black black #545454;
 }
 
 #bearbeiten-btn {
     grid-column: 4;
-    grid-row: 2;
+    grid-row: 1;
 }
 
 #löschen-btn {
     grid-column: 5;
-    grid-row: 2;
+    grid-row: 1;
 }

@@ -19,8 +19,12 @@
 				class="container">
 				Titel:
 			</label>
+
 			<input asp-for="Input.Title" />
-			<span asp-validation-for="Input.Title"></span>
+
+			<span asp-validation-for="Input.Title"
+				class="validation-text">
+			</span>
 		</div>
 
 		<div class="container">
@@ -36,7 +40,9 @@
 				<option value="Hoch">Hoch</option>
 			</select>
 
-			<span asp-validation-for="Input.Priority"></span>
+			<span asp-validation-for="Input.Priority"
+				class="validation-text">
+			</span>
 		</div>
 
 		<div class="container">

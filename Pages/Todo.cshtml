@@ -13,20 +13,36 @@
 	<h1 class="display-4">Todo Verwaltung</h1>
 </div>
 
-<form method="post">
+<form method="post" >
 
     <div id="testgrid">
 
         <input id="erledigt-ausblenden-checkbox" type="checkbox" />
         <div id="erledigt-checkbox-label">Erledigte ausblenden?</div>
 
-        <a asp-page="./NewTodo" id="neu-btn" class="button-link">Neu</a>
+        <a asp-page="./NewTodo"
+            id="neu-btn"
+            class="button-link">
+            Neu
+        </a>
 
-        <button type="submit" asp-page-handler="EditSelected" class="button-link" id="bearbeiten-btn">Bearbeiten</button>
+        <button type="submit"
+            asp-page-handler="EditSelected"
+            class="button-link"
+            id="bearbeiten-btn">
+            Bearbeiten
+        </button>
 
-        <button type="submit" asp-page-handler="DeleteSelected" class="button-link" id="löschen-btn" onclick="return confirm('Möchtest du die ausgewählten Todos wirklich löschen?');">Löschen</button>
-
+        <button type="submit"
+            asp-page-handler="DeleteSelected"
+            class="button-link"
+            id="löschen-btn"
+            onclick="return confirm('Möchtest du die ausgewählten Todos wirklich löschen?');">
+            Löschen
+        </button>
     </div>
+
+    <div asp-validation-summary="All" class="validation-text"></div>
     
     <table class="table">
         <thead>
